@@ -14,9 +14,6 @@ public class project2 {
 	
 	public static void main(String[] args) {
 		ArrayList<Sanctuary> shelters = new ArrayList<Sanctuary>();
-		int sheltChoice = 0;
-		int aniChoice = 0;
-		Scanner scan = new Scanner(System.in);
 		File f = null;
 		boolean created = false;
 		
@@ -33,7 +30,7 @@ public class project2 {
 				while (input.hasNext()) {
 					System.out.println("Step 1");
 					//Read sanctuary
-					sanct = scan.nextLine();
+					sanct = input.nextLine();
 					System.out.println(sanct);
 					Sanctuary shelter = new Sanctuary(sanct);
 					shelters.set(sheltFill, shelter);
@@ -65,6 +62,8 @@ public class project2 {
 			System.out.println("There was an error reading/creating your input file.");
 		}
 		
+		int sheltChoice = 0;
+		Scanner scan = new Scanner(System.in);
 		//User selects desired task
 		while (sheltChoice != 3) {
 			System.out.println("\n1. Add a shelter");
@@ -105,6 +104,7 @@ public class project2 {
 						System.out.println("This shelter doesn't exist in the database yet. Select 1 at the menu to add it.");
 					}
 					else {
+						int aniChoice = 0;
 						Sanctuary workingShelt = shelters.get(sheltFind);
 						while(aniChoice != 3) {							
 							System.out.println("\n1. Add an animal");
